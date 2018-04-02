@@ -1,0 +1,37 @@
+<div class="container">  
+        <div class="row justify-content-md-center">
+    <div class="col-lg-4 col-md-3 col-sm-2"></div>
+    <div class="col-lg-4 col-md-6 col-sm-8">
+        <div class="logo">
+            <img src="assets/images/logo.jpg"  alt="Logo"  > 
+        </div>
+        <div class="row loginbox">                    
+            <div class="col-lg-12">
+                <span class="singtext" >Sign in </span>   
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <input [ngClass]="{'is-invalid':!model.isValid}"  class="form-control" type="text" placeholder="Please enter your user name" required [(ngModel)]="model.username"> 
+            </div>
+            <div class="col-lg-12  col-md-12 col-sm-12">
+                <input [ngClass]="{'is-invalid':!model.isValid}" class="form-control" type="password" placeholder="Please enter password" required [(ngModel)]="model.password">
+               <div  *ngIf="model.isValid == ''" class="invalid-feedback">
+                    The combination of username and password is invalid
+                </div>    
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="checkbox">
+                    <label>
+                        <input type="checkbox" [(ngModel)]="model.rememberMe"> Remember me
+                    </label>
+                </div>
+            </div>
+            <div class="col-lg-12  col-md-12 col-sm-12">
+                <button class="btn submitButton" (click)="onLoggedin()">Submit </button> 
+            </div>                     
+        </div>
+        <br>                
+        <br>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-2"></div>
+</div>
+</div>

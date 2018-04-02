@@ -1,0 +1,26 @@
+﻿using PlainCore.Core.CQS.Base;
+using PlainCore.Core.Externals.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PlainCore.Core.CQS.Tenants.Commands
+{
+    public class CreateNewTenantCommandHandler : AbstractCommandHandler<CreateNewTenantCommand>
+    {
+        private IUnitOfWork unitOfWork;
+
+        public CreateNewTenantCommandHandler(IUnitOfWork unitOfWork)
+        {
+            this.unitOfWork = unitOfWork;
+        }
+
+        public async override Task<CommandResult> ExecuteAsync(CreateNewTenantCommand command)
+        {
+            await this.unitOfWork.TenantsDBSet.AddAsync(new DomainModels.Tenants.Tenant() { Name = command.Name });
+            await this.unitOfWork.SaveChangesAsync();
+            return await base.ExecuteAsync(command);
+        }
+    }
+}

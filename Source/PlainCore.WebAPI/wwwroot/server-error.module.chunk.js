@@ -41,7 +41,7 @@ var ServerErrorRoutingModule = /** @class */ (function () {
 /***/ "../../../../../src/app/server-error/server-error.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  server-error works!\n</p>\n"
+module.exports = "<p>\r\n  server-error works!\r\n</p>\r\n"
 
 /***/ }),
 

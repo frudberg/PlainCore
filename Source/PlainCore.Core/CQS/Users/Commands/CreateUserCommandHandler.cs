@@ -2,6 +2,7 @@
 using PlainCore.Core.DomainModels.Identities;
 using PlainCore.Core.Externals.Identities;
 using PlainCore.Core.Externals.Repositories;
+using PlainCore.Core.Helpers.Microsoft.DataTransfer.Basics;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,8 @@ namespace PlainCore.Core.CQS.Users
 
         public async override Task<CommandResult> ExecuteAsync(CreateUserCommand command)
         {
+            Guard.NotNull<CreateUserCommand>("CreateUserCommand", command);
+
             var applicationUser = new ApplicationUser
             {
                 FirstName = command.FirstName,

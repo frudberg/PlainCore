@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using PlainCore.Core.Helpers.Microsoft.DataTransfer.Basics;
 
 namespace PlainCore.Core.CQS.Tenants.Queries
 {
@@ -20,6 +21,7 @@ namespace PlainCore.Core.CQS.Tenants.Queries
 
         public IList<TenantDTO> Handle(GetAllTenantsQuery query)
         {
+            Guard.NotNull<GetAllTenantsQuery>("GetAllTenantsQuery", query);
             return this.unitOfWork.TenantsDBSet.Include(x => x.Users).Select(x => x.ToTenantDTO()).ToList();
         }
     }

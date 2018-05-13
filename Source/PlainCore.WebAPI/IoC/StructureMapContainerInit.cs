@@ -1,9 +1,7 @@
-﻿using PlainCore.Infrastructure.IoC;
+﻿using PlainCore.Core.Externals;
+using PlainCore.Infrastructure.IoC;
+using PlainCore.WebAPI.Authentication;
 using StructureMap;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PlainCore.WebAPI.IoC
 {
@@ -21,6 +19,7 @@ namespace PlainCore.WebAPI.IoC
 
         public DefaultRegistry() : base()
         {
+            For<IApplicationContext>().Use<WebApplicationContext>();
         }
 
         #endregion

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PlainCore.Core.CQS.Base;
 using PlainCore.Core.Externals.Dispatcher;
+using PlainCore.WebAPI.Attributes;
 using StructureMap;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlainCore.WebAPI.Controllers.V1
 {
+    [ServiceFilter(typeof(ApplicationContextActionFilterAttribute))]
     public class BaseController : Controller
     {
         protected readonly IContainer container;

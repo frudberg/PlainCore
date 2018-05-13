@@ -55,7 +55,7 @@ namespace PlainCore.WebAPI.Authentication
                     RoleClaimType = OpenIdConnectConstants.Claims.Role,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "http://localhost:55906/",
+                    ValidIssuer = "http://localhost:56747/",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(openIddictSetting.GetValue<string>("SigningKey"))),
                     RequireExpirationTime = true
                 };

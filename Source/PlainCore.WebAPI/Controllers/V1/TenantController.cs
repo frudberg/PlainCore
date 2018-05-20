@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using PlainCore.Core.CQS.Tenants.Commands;
 using PlainCore.Core.CQS.Tenants.Queries;
 using PlainCore.Core.DomainModels.Tenants;
+using static PlainCore.WebAPI.Authentication.RolePermissionFilter;
+using PlainCore.WebAPI.Authentication;
 
 namespace PlainCore.WebAPI.Controllers.V1
 {
@@ -23,7 +25,8 @@ namespace PlainCore.WebAPI.Controllers.V1
 
         [HttpPost("CreateTenant")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "API")]
-        public async Task<IActionResult> CreateUser([FromBody]CreateNewTenantCommand command)
+        [AuthorizePermission(Permission.CanManageTenants)]
+        public async Task<IActionResult> CreateTenant([FromBody]CreateNewTenantCommand command)
         {
             await this.WebApiCommandDispatcherAsync(command);
             return Ok();
@@ -31,6 +34,7 @@ namespace PlainCore.WebAPI.Controllers.V1
 
         [HttpGet("GetAllTenants")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "API")]
+        [AuthorizePermission(Permission.CanReadTenants)]
         public async Task<IActionResult> GetAllTenants()
         {
             var result = WebApiQueryParser<GetAllTenantsQuery, IList<TenantDTO>>(new GetAllTenantsQuery());

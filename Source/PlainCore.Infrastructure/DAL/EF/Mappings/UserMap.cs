@@ -16,6 +16,7 @@ namespace PlainCore.Infrastructure.DAL.EF.Mappings
             entity.HasOne(c => c.ApplicationUser).WithMany(x => x.Users).HasForeignKey(x => x.ApplicationUserId);
             entity.Property(c => c.CreatedDate);
             entity.Property(c => c.UpdatedDate);
+            entity.Property(c => c.UserRole);
             return modelBuilder;
         }
     }

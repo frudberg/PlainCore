@@ -11,6 +11,7 @@ namespace PlainCore.Core.DomainModels.Identities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public bool IsSuperAdministrator { get; set; }
         public IEnumerable<User> Users { get; set; } = new List<User>();
         
     }

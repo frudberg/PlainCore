@@ -10,6 +10,7 @@
     <Compile Remove="Migrations\20170909070218_AddOpenIdDict.cs" />
     <Compile Remove="Migrations\20170909114121_AddApplicationRole.cs" />
     <Compile Remove="Migrations\20171130034512_MigrationOfOpenDict.cs" />
+    <Compile Remove="Migrations\20180520123333_ModifyUserRoles.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Configgy.Microsoft.Extensions.Configuration" Version="1.0.3" />

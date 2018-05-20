@@ -13,9 +13,10 @@ using System;
 namespace PlainCore.Infrastructure.Migrations
 {
     [DbContext(typeof(UnitOfWork))]
-    partial class UnitOfWorkModelSnapshot : ModelSnapshot
+    [Migration("20180520124804_ModifyUserRoles")]
+    partial class ModifyUserRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
